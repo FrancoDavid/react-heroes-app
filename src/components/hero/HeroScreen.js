@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { getHeroById } from '../../helpers/getHeroById';
+import { heroesImages } from '../../helpers/heroImages';
 
 export const HeroScreen = () => {
 
@@ -18,12 +19,10 @@ export const HeroScreen = () => {
     return <Navigate to='/' />
   }
 
-  const imagePath = '/assets/img/heroes/'+hero.id+'.jpg';
-
   return (
     <div className="row mt-5">
         <div className="col-4 animate__animated animate__fadeInLeft">
-          <img src={imagePath} alt={hero.superhero} className="img-thumbnail"/>
+          <img src={heroesImages('./'+hero.id+'.jpg')} alt={hero.superhero} className="img-thumbnail"/>
         </div>
 
         <div className="col-8">
